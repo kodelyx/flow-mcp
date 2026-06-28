@@ -6,6 +6,7 @@ This repository contains the configuration and guides to run and connect the Goo
 
 ## 📂 Files in this Repository
 * **`docker-compose.yml`** — Configuration to run the Flow API & MCP server container.
+* **`mcp`** — Configuration file to connect local Claude Desktop/Cursor to the Docker container.
 
 ---
 
@@ -44,3 +45,29 @@ For browser-based ChatGPT (Web):
    https://flow.chatbulky.com/sse
    ```
 4. Set Authentication to **None** (Disable OAuth).
+
+---
+
+## 🛠️ 4. Connecting Locally via Docker (Claude Desktop / Cursor)
+
+If you are running the server locally via Docker, you can connect your Claude Desktop or Cursor client directly to the container using the `mcp` configuration file.
+
+Add the following to your `claude_desktop_config.json` (or Cursor MCP config):
+
+```json
+{
+    "mcpServers": {
+        "flow-agent": {
+            "command": "docker",
+            "args": [
+                "exec",
+                "-i",
+                "flow-agent-server",
+                "python3",
+                "-u",
+                "/app/flow_mcp_server.py"
+            ]
+        }
+    }
+}
+```
