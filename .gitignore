@@ -1,5 +1,0 @@
-# Ignore local temp files
-.DS_Store
-github-token
-scratch/
-free-gemini-api/
