@@ -1,6 +1,6 @@
 # Flow MCP: Native Google Flow AI Integration
 
-This repository contains the configuration and guides to run and connect the Google Flow MCP server locally or remotely.
+This repository contains the configuration and guides to run and connect the Google Flow MCP server remotely.
 
 ---
 
@@ -23,37 +23,12 @@ To start the server:
 
 ---
 
-## 🔌 2. Connecting to Cursor / Desktop Apps
+## 🔌 2. Connecting to Cursor / Desktop Apps (SSE Transport)
 
-### A. Local Connection (Same PC as Docker)
+To connect your IDE or desktop app (like Cursor) to the server over the internet:
+
 Open Cursor Settings (`Cmd + ,`) -> **Models** -> **MCP** -> **Add New MCP Server**:
 * **Name**: `flow`
-* **Type**: `command`
-* **Command**: `docker exec -i flow-agent-server python3 -u /app/flow_mcp_server.py`
-
-*For Claude Desktop / ChatGPT Desktop (Codex), paste this into your configuration JSON:*
-```json
-{
-  "mcpServers": {
-    "flow": {
-      "command": "docker",
-      "args": [
-        "exec",
-        "-i",
-        "flow-agent-server",
-        "python3",
-        "-u",
-        "/app/flow_mcp_server.py"
-      ]
-    }
-  }
-}
-```
-
-### B. Remote Connection (Different PC or Network)
-To connect to your server from another machine over the internet:
-Open Cursor Settings -> **Models** -> **MCP** -> **Add New MCP Server**:
-* **Name**: `flow-remote`
 * **Type**: `SSE`
 * **URL**: `https://flow.chatbulky.com/sse`
 
