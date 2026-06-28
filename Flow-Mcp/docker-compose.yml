@@ -1,6 +1,6 @@
 services:
   flow-agent:
-    image: akashyadav758/flow-agent-studio-backend:latest
+    image: akashyadav758/flow-agent-studio-backend:mcp
     container_name: flow-agent-server
     ports:
       - "8001:8001"    # OpenAI-compatible API + WebSocket /ws
@@ -17,7 +17,7 @@ services:
       - IMAGE_MODEL=NARWHAL
       - POLL_INTERVAL=10
       - POLL_TIMEOUT=420
-      - PUBLIC_BASE_URL=http://localhost:8001
+      - PUBLIC_BASE_URL=https://flow.chatbulky.com
     volumes:
       - backend-output:/app/output
       - /Users:/Users:ro

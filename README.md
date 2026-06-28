@@ -167,22 +167,24 @@ if "data" in data and len(data["data"]) > 0:
 
 ## 🛠️ 7. Model Context Protocol (MCP) Setup
 
-You can integrate this Flow Automation service directly into Cursor or Claude Desktop to use it as a native AI tool.
+You can integrate this Flow Automation service directly into Cursor, Claude Desktop, or ChatGPT Web (Chrome Extensions) to use it as a native AI tool.
 
-### Cursor Setup:
+### Local Stdio Setup (Cursor / Claude Desktop):
+
+#### Cursor Setup:
 1. Open Cursor Settings (`Cmd + ,`) -> **Models** -> **MCP**.
 2. Click **+ Add New MCP Server**.
 3. Configure the following:
-   * **Name**: `flow-agent`
+   * **Name**: `flow`
    * **Type**: `command`
    * **Command**: `docker exec -i flow-agent-server python3 -u /app/flow_mcp_server.py`
 
-### Claude Desktop Setup:
-Add the configuration to `~/Library/Application Support/Claude/claude_desktop_config.json`:
+#### Claude Desktop / ChatGPT Desktop Setup:
+Add the configuration to your MCP config file (e.g. `~/Library/Application Support/Claude/claude_desktop_config.json`):
 ```json
 {
   "mcpServers": {
-    "flow-agent": {
+    "flow": {
       "command": "docker",
       "args": [
         "exec",
@@ -196,3 +198,13 @@ Add the configuration to `~/Library/Application Support/Claude/claude_desktop_co
   }
 }
 ```
+
+---
+
+### Web / Chrome Extension Setup (SSE Transport):
+
+For browser-based integrations (like ChatGPT Web via Chrome extensions), you can connect using the Server-Sent Events (SSE) transport:
+
+* **Transport Type**: `SSE`
+* **SSE URL**: `https://flow.chatbulky.com/sse`
+* **Authentication**: `None` (No Authentication)
