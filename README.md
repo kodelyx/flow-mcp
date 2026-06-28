@@ -6,8 +6,7 @@ This directory contains everything you need to run and connect the Google Flow M
 
 ## 📂 Files inside this directory
 1. `docker-compose.yml` — Runs the Flow API & MCP server container.
-2. `local_mcp.json` — Configuration code for Cursor / Desktop apps (Local Stdio mode).
-3. `public.mcp` — General reference cheat-sheet for ChatGPT.
+2. `mcp.guide` — Unified connection guide (Local/Remote/Web) for ChatGPT, Cursor, and Claude.
 
 ---
 
@@ -34,7 +33,7 @@ To run the server on any machine:
    * **Name**: `flow`
    * **Type**: `command`
    * **Command**: `docker exec -i flow-agent-server python3 -u /app/flow_mcp_server.py`
-   *(This configuration is also saved in `local_mcp.json` for reference).*
+   *(This configuration is also saved in `mcp.guide` for reference).*
 
 ### B. Remote Connection (Different PC or Different Network)
 If your container is running on your home PC, but you are coding on a laptop elsewhere:
